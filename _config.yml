@@ -1,24 +1,24 @@
-title:              Clean Blog
-email:              your-email@example.com
-description:        A Blog Theme by Start Bootstrap
-author:             Start Bootstrap
-baseurl:            ""
-url:                "https://m3r3k.github.io"
+title: Blog of Kerem
+email: keremab61@gmail.com
+description: Technology, coding and philosophy
+author: M3R3K
+baseurl: ""
+url: "https://m3r3k.github.io"
 
 # Social Profiles
-twitter_username:   SBootstrap
-github_username:    StartBootstrap
-facebook_username:  StartBootstrap
-instagram_username:  
-linkedin_username:
+twitter_username:
+github_username: M3R3K
+facebook_username:
+instagram_username: keremfive
+linkedin_username: kabdullahoglu
 
 # Add your google-analytics ID here to activate google analytics
-google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
+google_analytics: UA-XXXXXXXXX-X # out your google-analytics code
 
 # Build settings
-markdown:           kramdown
-paginate:           5
-paginate_path:      "/posts/page:num/"
+markdown: kramdown
+paginate: 5
+paginate_path: "/posts/page:num/"
 plugins:
   - jekyll-feed
   - jekyll-paginate
