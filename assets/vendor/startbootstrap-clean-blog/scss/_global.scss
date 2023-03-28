@@ -74,3 +74,17 @@ img::-moz-selection {
     color: $white;
     background: transparent;
 }
+
+
+pre code {
+    font-size: medium;
+    color: #EFF5F5;
+    background-color: #20262E;
+    border: 3px solid #EA5455;
+    display: block;
+    
+  }
+
+pre:hover {
+    filter: drop-shadow(0 0 0.75rem #EA5455);
+}
