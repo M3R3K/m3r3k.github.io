@@ -1,0 +1,51 @@
+---
+layout: post
+title: "What is big O Notation"
+subtitle: "and why it is such a big deal."
+date: 2023-04-04 10:45:13 -0400
+background: '/img/posts/03.jpg'
+---
+
+<p>One of the fundamental building concepts of Computer Science is big O notation. Students may learn this concept in
+    their data structures and algorithms course because, in basic terms, big O notation is used to describe the
+    efficiency of a certain algorithm. This type of approach lets us compare different algorithms and lets us decide
+    whether or not we should implement that algorithm given its size and function.</p>
+
+<img src="https://images.unsplash.com/photo-1642952469120-eed4b65104be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    class="img-fluid">
+<span class="caption text-muted">Photo by <a
+        href="https://unsplash.com/@alpridephoto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Андрей
+        Сизов</a> on <a
+        href="https://unsplash.com/photos/nuz3rK5iiKg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</span>
+
+
+
+<h2 class="section-heading">The role of big O notation in data structures and algorithms</h2>
+<p>To type out this notation shortly, when we want to show the runtime complexity of a linear search algorithm it is
+    simply: " <em>O(n)</em> "<br>
+    This means that the time increases linearly as the number of elements increases. This deduction has been made by
+    considering the worst possible scenario in a given algorithm. The runtime of let's say a sorting algorithm can be as
+    little as one(instant), however, this is not guaranteed and therefore is not taken into account when we talk about
+    big O notation. Here are the different algorithms with their big O notations and their relative positions on a
+    linear graph.</p>
+
+<img class="img-fluid" src="/img/posts/03_02.jpg" style="width: 90%;">
+<span class="caption text-muted">As the graph shows, we can deduct whether an algorithm is efficient and its feasibility
+    before implementing it.</span>
+
+<h2 class="section-heading">Combining algorithms and for loops</h2>
+<p>When combining different big O values, we must follow these mathematical rules. Firstly, let us imagine two
+    functions, namely f, and g which have their own runtime complexity.<br>
+    If we want to combine these two algorithms and
+    deduct the big O notation of the combined algorithm, we would get: <em>O(f(n) + g(n))</em> <br>
+    Consequently, when we iterate over a set of elements or arrays, we get the size of the element as n where n is the
+    number of elements( infinitely large) in the loop. The complexity can be expanded when we put the same size loop
+    inside a loop where at that point, the big O notation expands exponentially.</p>
+
+<img class="img-fluid" src="/img/posts/03_03.jpg">
+
+<h2 class="section-heading">How code slows as data grows</h2>
+<p>To conclude this post, big O notation is an essential tool when it comes to scalability, where the feasibility of
+    certain approaches is decided by programmers. It is certainly a great tool for anyone working with the new emerging
+    technologies in IT, namely Artificial Intelligence and Machine Learning.</p>
