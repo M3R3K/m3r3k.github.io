@@ -88,3 +88,12 @@ pre code {
 pre:hover {
     filter: drop-shadow(0 0 0.75rem #EA5455);
 }
+.mainPic {
+    position: absolute;
+    margin: 0;
+}
+.sourceItem {
+    font-style: italic;
+    font-size: medium;
+    margin-bottom: 0.5rem;
+}
