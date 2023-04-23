@@ -63,6 +63,7 @@ blockquote {
     color: $white;
     background: $primary;
     text-shadow: none;
+    
 }
 
 img::selection {
@@ -77,6 +78,9 @@ img::-moz-selection {
 
 
 pre code {
+    font-size: small;
+    display: flex;
+    flex-wrap: wrap;
     font-size: medium;
     color: #EFF5F5;
     background-color: #20262E;
@@ -86,7 +90,7 @@ pre code {
   }
 
 pre:hover {
-    filter: drop-shadow(0 0 0.75rem #EA5455);
+    filter: drop-shadow(0 0 0.1rem #EA5455);
 }
 .mainPic {
     position: absolute;
@@ -98,3 +102,26 @@ pre:hover {
     margin-bottom: 0.5rem;
     overflow-wrap: break-word;
 }
+
+.underline {
+    background:
+      linear-gradient(
+        to right,
+        $primary,
+        $primary
+      ),
+      linear-gradient(
+        to right,
+        #FF8E00,
+        #FF0000,
+        #DC2ADE 
+    );
+    background-size: 100% 3px, 0 3px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+  }
+  
+  .underline:hover {
+    background-size: 0 3px, 100% 3px;
+  }

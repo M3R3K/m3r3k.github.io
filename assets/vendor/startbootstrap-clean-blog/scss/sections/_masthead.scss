@@ -94,3 +94,11 @@ header.masthead {
         }
     }
 }
+.blurred {
+    background-color: #0000002a;
+    backdrop-filter: blur(5px);
+    padding-bottom: 0.25rem;
+}
+.postDiv {
+    padding: 0.45rem;
+}
