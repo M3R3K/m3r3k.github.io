@@ -1,12 +1,14 @@
 // Styling for the post page
 .post-preview {
     >a {
+        transition-duration: 0.3s;
         color: $gray-900;
 
         &:focus,
         &:hover {
             text-decoration: none;
             color: $primary;
+            
         }
 
         >.post-title {
@@ -43,6 +45,7 @@
         >a {
             >.post-title {
                 font-size: 36px;
+                display: inline;
             }
         }
     }
