@@ -7,6 +7,9 @@ background: '/img/posts/mandelbrot/01.jpg'
 photoby: "Photo by BernardH on Wikipedia"
 ---
 
+
+
+
 <p>In mathematics, one of the most beautiful visual representations in my opinion is Mendelbrot set. To appreciate its
     beauty, one doesn't have to be a mathematician or from a similar background. However I think it is better to
     understand how we achieve this fractal pattern because it will show us that this pattern is not something
@@ -57,22 +60,30 @@ photoby: "Photo by BernardH on Wikipedia"
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Mandel_zoom_00_mandelbrot_set.jpg" class="img-fluid">
 
-<h6 class="section-heading">Here is the example code written in Java:</h6>
+<h6 class="section-heading">Here is the example code:</h6>
+<div class="container">
+    <p class="language" id="language-copy">Java</p>
+    <div class="code-wrapper">
+        <pre>
+            <button id="copy-button">Copy</button>
 
-<pre>
-    <code>
-    public static void main(String[] args) {
-        double number =0.21;
-        double init =number;
-        int i=0;
-        while(i<8) {
-            i++;
-            number = number* number +init;
-            System.out.println(number);
+            <code id="code" class="language-java">public static void main(String[] args) {
+    double number =0.21;
+    double init =number;
+    int i=0;
+    while(i<8) {
+        i++;
+        number = number* number +init;
+        System.out.println(number);
         }
-    }
-    </code>
-</pre>
+}
+            </code>
+        </pre>
+    </div>
+    <span id="copy-success">Copied to clipboard!</span>
+</div>
+
+
 <br>
 <h6><em>Source section</em></h6>
 <ul>
@@ -83,3 +94,6 @@ photoby: "Photo by BernardH on Wikipedia"
     <li class="sourceItem">Fractal geometry. IBM100 - Fractal Geometry. (n.d.). Retrieved April 21, 2023, from
         https://www.ibm.com/ibm/history/ibm100/us/en/icons/fractal/ </li>
 </ul>
+
+<script src="/js/code.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>

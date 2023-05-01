@@ -77,21 +77,73 @@ img::-moz-selection {
 }
 
 
-pre code {
-    font-size: small;
+pre {
+    
     display: flex;
     flex-wrap: wrap;
     font-size: medium;
     color: #EFF5F5;
     background-color: #20262E;
-    border: 3px solid #EA5455;
-    display: block;
+    border: 3px solid #EC9B3B;
+    overflow-wrap:break-word;
+    word-break: break-all;
+    border-radius: 5px;
     
   }
-
-pre:hover {
-    filter: drop-shadow(0 0 0.1rem #EA5455);
+  pre code {
+    margin-left:2% ;
+  }
+.language {
+    display: inline;
+    margin: 0;
+    font-size: x-large;
+    margin-left: 87%;
+    padding: 0 3% 0 3%;
+    border-radius: 5px;
+    align-self: flex-end;
+    background-color: #20262E;
+    color: #EC9B3B;
 }
+
+  #copy-button {
+    color: white;
+    margin-left: 90%;
+    background-color: #56667b;
+    margin-top: 2%;
+    border-radius: 10px;
+    transition: all 0.2s ease-in;
+    opacity: 0;
+
+  }
+  #copy-button:hover {
+    background-color: #323f52b0;
+  }
+  .code-wrapper:hover #copy-button {
+    opacity: 1;
+  }
+  #copy-success {
+    color: white;
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color:#43699a;
+    padding: 1% 2%;
+    border-radius: 10px;
+    display: none;
+    transition: all 0.2s ease-in;
+    
+  }
+  #copy-success.show-message {
+    display: inline;
+  }
+  .hljs {
+    background-color: transparent;
+  }
+
+
+
+
 .mainPic {
     position: absolute;
     top: 100%;
