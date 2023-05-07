@@ -1,0 +1,80 @@
+---
+layout: default
+title: Technology
+background: '/img/bg-technology.jpg'
+photoby: Photo by Christian Lue on Unsplash
+---
+<!-- Page Header -->
+{% if page.background %}
+<header class="masthead"
+    style="height:18rem ;background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
+    {% else %}
+    <header class="masthead">
+        {% endif %}
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="page-heading" style="padding-top: 6rem;">
+                        <div class="blurred homeTitle">
+                            <h1>Technology</h1>
+
+                            <!-- <span class="subheading"></span> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="mainPic caption">Photo by <a
+                href="https://unsplash.com/@redaquamedia?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Denny
+                Müller</a> on <a
+                href="https://unsplash.com/photos/JyRTi3LoQnc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+
+        </p>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+
+                <!-- Home Post List -->
+                {% for post in site.posts%}
+                {% if post.category == "technology" %}
+
+                <article class="post-preview">
+                    <a class="" href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+                        <h2 class="post-title underline" style="display: inline-block;">{{ post.title }}</h2>
+                        {% if post.subtitle %}
+                        <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+                        {% else %}
+                        <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
+                        {% endif %}
+                    </a>
+                    <p class="post-meta">
+                        {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %}
+                    </p>
+                </article>
+
+                <hr>
+                {% endif %}
+
+                {% endfor %}
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- {% for post in site.posts %}
+
+    {% if post.category == "philosophy" %}
+    <h1>{{ post.title }}</h1>
+    {% endif %}
+    {% endfor %} -->

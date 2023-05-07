@@ -1,0 +1,134 @@
+---
+layout: post
+title: "Garbage collection"
+subtitle: "why memory management is important. "
+date: 2023-05-03 10:45:13 -0400
+background: '/img/posts/garbage/garbage.jpg'
+photoby: "Photo by Kelsy Gagnebin on Unsplash"
+category: "technology"
+---
+
+<p>In a typical program that runs code and dynamically allocates the part of your memory on your hardware, it's mostly
+    unknown how much memory you will use concurrently. This program can be anything from a website that you load up on
+    your browser to a game that you play on lazy Saturday nights. So the implementation of garbage collection basically
+    does is, it constantly searches and detects a memory that is not referenced(used) but allocated for the program and
+    when it detects the aforementioned memory, it releases it so other processes can use that bit of space to run
+    smoothly and makes it possible to multitask on modern computers.</p>
+
+<img src="https://images.unsplash.com/photo-1542978709-19c95dc3bc7e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+    class="img-fluid">
+<span class="caption text-muted">Volatile memory is stored in a RAM modules. (Photo by <a
+        href="https://unsplash.com/@possessedphotography?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Possessed
+        Photography</a> on <a
+        href="https://unsplash.com/photos/nuc3NFB_6po?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</span>
+
+
+
+<h2 class="section-heading">Manual memory management</h2>
+<p>Typically in older programming languages for example, in C language you manually get a memory space with certain
+    functions. So to get a memory of a certain quantity, you have to type how many bytes you want to allocate and free
+    that memory space once you're done using it. To give an example of this, here is an example code written in C:
+</p>
+
+<div class="container">
+    <p class="language" id="language-copy">C</p>
+    <div class="code-wrapper">
+        <pre>
+            <button id="copy-button">Copy</button>
+            <code id="code" class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main() {
+    int *ptr;
+    int n = 5;
+    ptr = (int*) malloc(n * sizeof(int)); // allocate memory for 5 integers
+    if (ptr == NULL) {
+        printf("Memory allocation failed");
+        exit(1); // exit the program with an error code
+    }
+    // assign values to the memory block
+    for (int i = 0; i < n; i++) {
+        *(ptr + i) = i;
+    }
+    // print the values from the memory block
+    for (int i = 0; i < n; i++) {
+        printf("%d ", *(ptr + i));
+    }
+    free(ptr); // free the allocated memory
+    return 0;
+}     
+            </code>
+        </pre>
+    </div>
+    <span id="copy-success">Copied to clipboard!</span>
+</div>
+<script src="/js/code.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+<p>The Malloc function takes one argument, which is the amount of memory to allocate in bytes. It then returns a pointer
+    to the allocated block of memory. In the case of allocation, the operation is not successful, the function returns a
+    NULL pointer. Here in the given code we've allocated 5 integer amounts of bytes to ptr and assigned values to them.
+    Then finally we freed the allocated memory using the free function. Freeing existing memory at the last step is
+    really important in order to prevent memory leaks. The common error people make when building large-scale codebases
+    on these languages is that when at any point of the program, the allocated memory is not freed, the computer won't
+    take it back because it is flagged as being used by that program. The other common mistake is when you freed the
+    memory and you try to access that same bit of memory, in that case, the OS might have given that block to some other
+    process and because of that, you might get compile-time errors or some random value you didn't ask for.</p>
+<img src="https://images.unsplash.com/photo-1589995186011-a7b485edc4bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    class="img-fluid">
+<span class="caption text-muted">Photo by <a
+        href="https://unsplash.com/@redaquamedia?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Denny
+        Müller</a> on <a
+        href="https://unsplash.com/photos/1qL31aacAPA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</span>
+
+
+<p>In this approach, as we have seen from the examples, we might encounter loads of problems. So in order to get ahead
+    of that, most high-level programming languages have some sort of garbage collection built in. In short, garbage
+    collection basically gives you memory when you don't need it anymore.</p>
+
+<h2 class="section-heading">Ways of garbage collection</h2>
+
+<p>The most obvious way of garbage collection is reference counting. In this method, the allocated memory has a property
+    called reference counter, you keep track of how many references that bit of memory has, and you free the
+    aforementioned memory when it finally has zero references in the program. This approach has its own tradeoffs,
+    firstly you have to remember to add or decrease this property and the other one is that with this approach you now
+    have an integer associated with all of the memory spaces in your program which makes the program memory inefficient
+    and can decrease the program's performance. Another problem is some sort of memory leak where you have some memory
+    blocks with reference counter that doesn't go zero in order to free them. This in itself can be classified as a
+    memory leak. With its tradeoffs, the reference counting is used in programming languages like Python where it's used
+    with other sound methods of garbage collection like mark and sweep algorithm.</p>
+
+<h2 class="section-heading">Mark and sweep</h2>
+<p>To understand the mark and sweep algorithm we need to know about live memory and dead memory concepts. Live memory is
+    a memory block that is actively referenced, whereas dead memory is a memory block that doesn't have any references
+    to it.</p>
+<img src="/img/posts/garbage/garbage1.jpg" class="img-fluid">
+<span class="caption">In this example, x and y is referencing memory blocks 1 and 2 so they are live memory and
+    therefore marked.</span>
+<p>Mark stage goes through all of the accessible memory blocks, even the blocks that are not directly referenced. Here
+    in this example if we remove the y reference to the memory block 2:</p>
+<img src="/img/posts/garbage/garbage2.jpg" class="img-fluid">
+<p>Marking goes through all the direct or indirect references marks them one by one sort of like a boolean value,
+    because of that the program size is lower than the reference count method.</p>
+<img src="/img/posts/garbage/garbage3.jpg" class="img-fluid">
+
+<p>Sweeping stage frees up the unmarked memory block, making our program
+</p>
+
+<br>
+<h6><em>Source section</em></h6>
+<ul>
+    <li class="sourceItem">Debnath, M. (2023) Understanding garbage collection in go, Developer.com. Available at:
+        https://www.developer.com/languages/garbage-collection-go/ (Accessed: May 3, 2023). </li>
+    <li class="sourceItem">DeBrie, A. (2023) Python garbage collection: What it is and how it works, Stackify. Available
+        at: https://stackify.com/python-garbage-collection/ (Accessed: May 3, 2023). </li>
+    <li class="sourceItem">Garbage collection in Java (2022) GeeksforGeeks. GeeksforGeeks. Available at:
+        https://www.geeksforgeeks.org/garbage-collection-java/ (Accessed: May 3, 2023). </li>
+    <li class="sourceItem">Garbage Collector Design (no date) Python Developer's Guide. Available at:
+        https://devguide.python.org/internals/garbage-collector/ (Accessed: May 3, 2023). </li>
+    <li class="sourceItem">Heller, M. (2023) What is garbage collection? Automated Memory Management for your programs,
+        InfoWorld. InfoWorld. Available at:
+        https://www.infoworld.com/article/3685493/what-is-garbage-collection-automated-memory-management-for-your-programs.html
+        (Accessed: May 3, 2023). </li>
+</ul>
