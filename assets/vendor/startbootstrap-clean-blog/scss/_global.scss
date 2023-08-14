@@ -1,7 +1,8 @@
 // Global styling for this template
 body {
     font-size: 20px;
-    color: $gray-900;
+    color: white;
+    background-color: #2D4356;
 }
 
 p {
@@ -23,7 +24,7 @@ h6 {
 }
 
 a {
-    color: $gray-900;
+  color: #91C8E4;
 
     &:focus,
     &:hover {
@@ -43,6 +44,7 @@ blockquote {
 }
 
 .caption {
+    color:  $gray-200;
     font-size: 14px;
     font-style: italic;
     display: block;
@@ -150,6 +152,7 @@ pre {
     margin: 0;
 }
 .sourceItem {
+  color: $gray-200;
     font-style: italic;
     font-size: medium;
     margin-bottom: 0.5rem;
@@ -178,3 +181,10 @@ pre {
   .underline:hover {
     background-size: 0 3px, 100% 3px;
   }
+
+.footerIcon {
+  color: #212A3E;
+}
+.footerIcon:hover {
+  color: $primary;
+}

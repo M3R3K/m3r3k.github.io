@@ -2,7 +2,7 @@
 .post-preview {
     >a {
         transition-duration: 0.3s;
-        color: $gray-900;
+        color: #EDEDED;
 
         &:focus,
         &:hover {
@@ -27,7 +27,7 @@
         font-size: 18px;
         font-style: italic;
         margin-top: 0;
-        color: $gray-600;
+        color: $gray-500;
 
         >a {
             text-decoration: none;
