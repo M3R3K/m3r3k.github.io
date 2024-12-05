@@ -1,0 +1,64 @@
+---
+layout: post
+title: "Flutter installation "
+subtitle: "general problems that I've faced."
+date: 2024-12-04 22:01:13 -0400
+background: '/img/posts/flutter_install/install.jpg'
+photoby: "Photo by intrapixel on Unsplash"
+category: "flutter"
+---
+
+<p>Flutter is a multi platform development framework that is made by Google team to accelerate the process of developing
+    multi platform apps on a single codebase. It is a versatile tool for developers as it has a dedicated team of
+    developers and a superb quality of documentation behind it.</p>
+
+<p>But, as with any software, there are some problems that you might face when you're trying to install it on your
+    machine </p>
+
+<h2 class="section-heading">Installation problems</h2>
+<p>When I was trying to install flutter on my machine, I faced some problems that I want to share with you. </p>
+<p>First of all; before installation, you have to have:</p>
+<ul>
+    <li>Git</li>
+    <li>Powershell or a cmdline software.</li>
+    <li>Minimum 7gb of disk space</li>
+</ul>
+<p>After you have these, you can start the installation process. </p>
+<p>First, you have to clone the flutter repository from the github. You can do this by typing the following command in
+    your terminal:</p>
+<div class="container">
+    <div class="code-wrapper">
+        <pre>
+             <button id="copy-button">Copy</button>
+              <code id="code" class="language-bash">git clone https://github.com/flutter/flutter.git</code>
+</div>
+
+<p>After you have cloned the repository, you have to add the flutter/bin directory to your PATH variable. 
+    Now this step is where I have stuck earlier when installing flutter, as I didn't realize I had to add the bin folder,
+     so I only added flutter folder which unsurprisingly it did not work</p>
+<p>After you have added the bin folder to your PATH variable, you can run the following command to check if the flutter is
+    installed correctly:</p>
+<div class="container">
+    <div class="code-wrapper">
+        <pre>
+             <button id="copy-button">Copy</button>
+              <code id="code" class="language-bash">flutter doctor
+flutter doctor --android-licenses
+              </code>
+        </pre>
+    </div>
+
+</div>
+<p>After you have ran this command, you will see the output of the flutter doctor command.
+    Now the next step involves downloading and installing
+    Android Studio which is a straightforward process. Even if
+    you don't use the Android Studio which is powered by
+    Jetbrains IDE, you have to install it because it is needed to
+    download android toolchain</p>
+<p>After you have installed the Android Studio, you have to open it and go to the settings. In the settings, you have to
+    go to languages section where there is an Android SDK section where you can download the Android Command Line Tools.
+</p>
+<img src="/img/posts/flutter_install/01.png" class="img-fluid">
+
+<p> After you have downloaded the tools, you can close the Android Studio and go back to the IDE of your choosing and
+    start developing awesome apps!</p>
