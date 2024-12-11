@@ -1,0 +1,122 @@
+---
+layout: post
+title: "Stateless vs Stateful Widgets in Flutter"
+date: 2024-12-04 22:01:13 -0400
+background: '/img/posts/stateless_vs_stateful/stateless_vs_stateful.jpg'
+photoby: "Photo by Kelly Sikkema on Unsplash"
+category: "flutter"
+---
+
+<p>In Flutter, stateless and stateful widgets are two fundamental types of widgets that define how a UI component
+    behaves and interacts with the application state. It is important to differentiate between them as it is a concept
+    used every time a developer tries to create a new widget</p>
+
+<h2 class="section-heading">Stateless Widgets</h2>
+<p>A StatelessWidget is immutable, meaning it cannot change its state after being created. It is designed for widgets
+    whose configuration and appearance remain constant throughout their lifecycle.</p>
+<h4>Characteristic properties of Stateless Widgets</h4>
+<ul>
+    <li>
+        Immutable: Once created, the widget cannot change.
+    </li>
+    <li>
+        Lightweight: Suitable for UI elements that do not need to update or interact dynamically.
+    </li>
+    <li>Rebuild Mechanism: When the widget tree is rebuilt (e.g., due to a parent widget's state change), a new instance
+        of the StatelessWidget is created.</li>
+</ul>
+<p> Stateless widgets are typically used in Static text or images, icons and layout containers such as Row, Column or
+    Containers. Example code given below:</p>
+
+<div class="container">
+    <div class="code-wrapper">
+        <pre>
+                 <button id="copy-button">Copy</button>
+                  <code id="code" class="language-dart">class MyStatelessWidget extends StatelessWidget {
+final String title;
+                  
+MyStatelessWidget({required this.title});
+                  
+@override
+Widget build(BuildContext context) {
+    // Displays the title passed during creation
+    return Text(title); 
+    }
+}
+                  </code>
+</div>
+
+<p>In this example, MyStatelessWidget simply displays the title. You can't update the title after the widget is created.</p>
+
+
+<h2 class="section-heading">Stateful Widgets</h2>
+<p>A StatefulWidget is dynamic and can change during its 
+    lifecycle based on user interaction, data updates, or other events. It consists of two classes:
+</p>
+
+<ul>
+    <li><em>StatefulWidget Class</em>: Represents the widget itself.</li>
+    <li><em>State Class:</em> Maintains the state of the widget and contains logic to update the UI.</li>
+</ul>
+
+<h4>Characteristic properties of Stateful Widgets</h4>
+
+<ul>
+    <li>Dynamic State: Can update or modify the UI in response to events.</li>
+    <li>State Management: The State class stores properties that change and provides methods like setState to trigger updates.</li>
+    <li>Lifecycle Methods: Includes methods such as initState, setState, and dispose to manage the widget's lifecycle.</li>
+</ul>
+
+<p>Stateful Widgets are typically used in Form inputs, 
+    Buttons with toggling states, Animations or timers or generally 
+    Widgets that respond to asynchronous data(Such as API calls).</p>
+
+
+
+    <div class="container">
+        <div class="code-wrapper">
+            <pre>
+                     <button id="copy-button">Copy</button>
+                      <code id="code" class="language-dart">class MyStatefulWidget extends StatefulWidget {
+  @override
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  int counter = 0;
+
+  void incrementCounter() {
+    setState(() {
+      counter++; // Updates the counter and refreshes the UI
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text('Counter: $counter'),
+        ElevatedButton(
+          onPressed: incrementCounter,
+          child: Text('Increment'),
+        ),
+      ],
+    );
+  }
+}
+                      </code>
+    </div>
+
+<p>In this example, pressing the button updates the counter state, 
+    which triggers a UI rebuild to reflect the new value. 
+    This is also the default code when building a new project in flutter.</p>
+
+<h4>Choosing Between Stateless and Stateful Widgets</h4>
+<ul>
+    <li>Use <b>StatelessWidget</b> when the widget does not need to change after being created.</li>
+    <li>Use <b>StatefulWidget</b> when the widget needs to respond to user input, animations or data updates dynamically.</li>
+
+</ul>
+
+<p>Understanding the difference between Stateless and Stateless Widget is crucial as it affects the design of the whole application!</p>
