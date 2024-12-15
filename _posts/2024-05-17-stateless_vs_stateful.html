@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Stateless vs Stateful Widgets in Flutter"
+subtitle: "when to use which?"
 date: 2024-12-04 22:01:13 -0400
 background: '/img/posts/stateless_vs_stateful/stateless_vs_stateful.jpg'
 photoby: "Photo by Kelly Sikkema on Unsplash"
@@ -8,29 +9,29 @@ category: "flutter"
 ---
 
 <p>In Flutter, stateless and stateful widgets are two fundamental types of widgets that define how a UI component
-    behaves and interacts with the application state. It is important to differentiate between them as it is a concept
-    used every time a developer tries to create a new widget</p>
+  behaves and interacts with the application state. It is important to differentiate between them as it is a concept
+  used every time a developer tries to create a new widget</p>
 
 <h2 class="section-heading">Stateless Widgets</h2>
 <p>A StatelessWidget is immutable, meaning it cannot change its state after being created. It is designed for widgets
-    whose configuration and appearance remain constant throughout their lifecycle.</p>
+  whose configuration and appearance remain constant throughout their lifecycle.</p>
 <h4>Characteristic properties of Stateless Widgets</h4>
 <ul>
-    <li>
-        Immutable: Once created, the widget cannot change.
-    </li>
-    <li>
-        Lightweight: Suitable for UI elements that do not need to update or interact dynamically.
-    </li>
-    <li>Rebuild Mechanism: When the widget tree is rebuilt (e.g., due to a parent widget's state change), a new instance
-        of the StatelessWidget is created.</li>
+  <li>
+    Immutable: Once created, the widget cannot change.
+  </li>
+  <li>
+    Lightweight: Suitable for UI elements that do not need to update or interact dynamically.
+  </li>
+  <li>Rebuild Mechanism: When the widget tree is rebuilt (e.g., due to a parent widget's state change), a new instance
+    of the StatelessWidget is created.</li>
 </ul>
 <p> Stateless widgets are typically used in Static text or images, icons and layout containers such as Row, Column or
-    Containers. Example code given below:</p>
+  Containers. Example code given below:</p>
 
 <div class="container">
-    <div class="code-wrapper">
-        <pre>
+  <div class="code-wrapper">
+    <pre>
                  <button id="copy-button">Copy</button>
                   <code id="code" class="language-dart">class MyStatelessWidget extends StatelessWidget {
 final String title;
